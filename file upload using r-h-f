@@ -1,0 +1,16 @@
+<input
+          type="file"
+          {...register("file", {
+            validate: (files) => {
+              const file = files[0];
+              if (file && file.size > 2 * 1024 * 1024) {
+                return "File size must be less than 2MB";
+              }
+              return true;
+            },
+          })}
+          accept="image/*"
+        />
+        {errors.file && <p className="text-red-700">{errors.file.message}</p>}
+
+        <button type="submit">submit</button>
