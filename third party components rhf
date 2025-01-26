@@ -1,0 +1,27 @@
+ <form onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <label>Select an option:</label>
+        
+        {/* Use Controller to integrate React Select with RHF */}
+        <Controller
+          name="selectedOption"  // Name for the input field
+          control={control}      // Connect with RHF's control
+          defaultValue={null}    // Default value for React Select
+          rules={{ required: "This field is required" }} // Validation rule (optional)
+          render={({ field }) => (
+            <Select
+              {...field}  // Pass field props to React Select
+              options={options}  // Options for React Select
+              isClearable  // Allow clearing the selection
+            />
+          )}
+        />
+
+        {/* Display validation error message */}
+        {errors.selectedOption && (
+          <p style={{ color: "red" }}>{errors.selectedOption.message}</p>
+        )}
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
