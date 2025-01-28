@@ -1,0 +1,36 @@
+**index.css**
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+
+
+    .test {
+        @apply border border-red-800
+    }
+}
+
+
+
+**tailwind config**
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        darkgray: "#4D4D4D",
+      },
+      fontFamily: {Playwrite:['Playwrite VN','sans-serif']},
+    },
+  },
+  plugins: [],
+};
+
+
+**usage:**
+
+<h1 className="font-Playwrite font-light text-gray-400  text-5xl"> or suna</h1>
